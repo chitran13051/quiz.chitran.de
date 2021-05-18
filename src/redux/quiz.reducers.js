@@ -1,4 +1,4 @@
-import { quizTypes } from "../redux/quiz.types"
+import { quizTypes } from "./quiz.types"
 
 const triviaInitState = {
   questions: [],

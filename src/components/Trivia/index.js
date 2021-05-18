@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { fetchData } from "../../redux/quiz.helpers"
-import { triviaReducer } from "../../redux/quiz.reducers"
+import { fetchData } from "../../redux/quiz.actions"
+import { selectQuestion, nextQuestion } from "../../redux/quiz.actions"
 
 import styled from "styled-components"
 import { quizTypes } from "../../redux/quiz.types"
@@ -60,12 +60,7 @@ function Trivia() {
 
         return (
           <Button
-            onClick={e =>
-              dispatch({
-                type: quizTypes.SELECT_QUESTION,
-                payload: e.target.outerText,
-              })
-            }
+            onClick={e => dispatch(selectQuestion(e.target.outerText))}
             background={bgColor}
             key={i}
           >
@@ -77,12 +72,7 @@ function Trivia() {
       <div className="btn">
         <Button
           disabled={!isSelected}
-          onClick={() =>
-            dispatch({
-              type: quizTypes.NEXT_QUESTION,
-              payload: questionIndex,
-            })
-          }
+          onClick={() => dispatch(nextQuestion(questionIndex))}
           background="disable"
         >
           {isChecked ? "Next Question" : "Check"}
