@@ -2,40 +2,9 @@ import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchData } from "../../redux/quiz.actions"
 import { selectQuestion, nextQuestion } from "../../redux/quiz.actions"
-
-import styled from "styled-components"
+import { Question, Button, Card, Answer } from "../../Stylings"
+import { IoBulbOutline } from "react-icons/io5"
 import { quizTypes } from "../../redux/quiz.types"
-
-const Question = styled.div`
-  border: 1px dashed #cecece;
-  padding: 1rem;
-`
-const Button = styled.button.attrs(props => {
-  switch (props.background) {
-    case "correct":
-      return {
-        answerBackground: "green",
-      }
-    case "incorrect":
-      return {
-        answerBackground: "red",
-      }
-    case "check":
-      return {
-        answerBackground: "blue",
-      }
-    case "disable":
-      return {
-        answerBackground: "#ccc",
-      }
-    default:
-      return {
-        answerBackground: "orange",
-      }
-  }
-})`
-  background-color: ${props => props.answerBackground};
-`
 
 function Trivia() {
   const dispatch = useDispatch()
@@ -53,32 +22,35 @@ function Trivia() {
     return <h1>Loading ...</h1>
   }
   return (
-    <Question>
-      <h5> {questions[questionIndex].question} </h5>
+    <Card>
+      <Question>
+        <span> {questions[questionIndex].question} </span>{" "}
+      </Question>
       {questions[questionIndex].answers.map((answer, i) => {
         const bgColor = questions[questionIndex].correct_answer
 
         return (
-          <Button
+          <Answer
             onClick={e => dispatch(selectQuestion(e.target.outerText))}
             background={bgColor}
             key={i}
           >
             {answer}
-          </Button>
+          </Answer>
         )
       })}
 
       <div className="btn">
         <Button
-          disabled={!isSelected}
+          //  {isSelected? background = 'correct'}
           onClick={() => dispatch(nextQuestion(questionIndex))}
-          background="disable"
+          // background="correct"
         >
           {isChecked ? "Next Question" : "Check"}
+          <IoBulbOutline />
         </Button>
       </div>
-    </Question>
+    </Card>
   )
 }
 

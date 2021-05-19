@@ -15,15 +15,21 @@ export const GlobalStyle = createGlobalStyle`
     background-size: cover;
   
   
-  header, footer{
+  header{
       height: 200px;
   }
+   footer{
+     height: 50px
+   }
   main{
 flex: 1;
   }
 }
 
 `
+//////////////////////
+//Home Page Styling
+///////////////////////
 const PressAnimation = keyframes`
 0%{
 opacity : 0;
@@ -152,4 +158,126 @@ export const ToggleButton = styled.input.attrs({ type: "checkbox" })`
     left: 39px;
     background-color: white;
   }
+`
+//////////////////////
+//Play Page Styling
+///////////////////////
+
+export const Card = styled.div`
+  width: 50%;
+  height: 50vh;
+  margin: 0 auto;
+`
+
+export const Question = styled.div`
+  margin: 2rem 0;
+  padding: 1rem;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 9px -4px 20px 0px navy;
+`
+export const Answer = styled.button.attrs(props => {
+  switch (props.background) {
+    case "correct":
+      return {
+        answerBackground: "green",
+      }
+    case "incorrect":
+      return {
+        answerBackground: "red",
+      }
+    case "check":
+      return {
+        answerBackground: "blue",
+      }
+    case "disable":
+      return {
+        answerBackground: "#ccc",
+      }
+    default:
+      return {
+        answerBackground: "orange",
+      }
+  }
+})`
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 70px;
+  padding: 1rem;
+
+  margin-top: 15px;
+  border-radius: 3.75rem;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  border: 1px solid #012880;
+  background-image: linear-gradient(-180deg, #ff89d6 0%, hotpink 100%);
+  box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
+    0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
+    0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+    0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+
+  &:before {
+    content: "";
+    display: block;
+    height: 0.25rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 7.5rem);
+    background: #fff;
+    border-radius: 100%;
+
+    opacity: 0.7;
+    background-image: linear-gradient(
+      -270deg,
+      rgba(255, 255, 255, 0) 0%,
+      #ffffff 20%,
+      #ffffff 80%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  &:after {
+    content: "";
+    height: 0.25rem;
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 7.5rem);
+    background: #fff;
+    border-radius: 100%;
+
+    filter: blur(1px);
+    opacity: 0.05;
+    background-image: linear-gradient(
+      -270deg,
+      rgba(255, 255, 255, 0) 0%,
+      #ffffff 20%,
+      #ffffff 80%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  /* &:hover {
+    background-image: linear-gradient(-180deg, #ff89d6 0%, blue 100%);
+    color: white;
+  } */
+  &:focus {
+    background-image: linear-gradient(-180deg, #ff89d6 0%, blue 100%);
+    color: white;
+  }
+`
+export const Button = styled.button`
+  padding: 1rem;
+  margin-top: 15px;
+  cursor: pointer;
+  /* color: black; */
+  border-radius: 5px;
+  font-size: 1.5rem;
 `
