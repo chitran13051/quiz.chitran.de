@@ -11,6 +11,7 @@ function Trivia() {
   const { questions, questionIndex, isSelected, isChecked } = useSelector(
     state => state
   )
+  console.log(isSelected)
   const handleFetchData = () => {
     dispatch(fetchData)
   }
@@ -42,10 +43,13 @@ function Trivia() {
 
       <div className="btn">
         <Button
-          //  {isSelected? background = 'correct'}
+          disabled={!isSelected}
+          background={isSelected}
+          animation={isSelected}
           onClick={() => dispatch(nextQuestion(questionIndex))}
-          // background="correct"
+          // {...(isSelected ? (background = "orange") : (background = "#ccc"))}
         >
+          {/* {isSelected && background = 'orange'} */}
           {isChecked ? "Next Question" : "Check"}
           <IoBulbOutline />
         </Button>

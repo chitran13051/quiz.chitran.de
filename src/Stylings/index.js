@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, keyframes } from "styled-components"
+import styled, { createGlobalStyle, keyframes, css } from "styled-components"
 import BgImg from "./bg.jpg"
 
 export const GlobalStyle = createGlobalStyle`
@@ -276,8 +276,34 @@ export const Answer = styled.button.attrs(props => {
 export const Button = styled.button`
   padding: 1rem;
   margin-top: 15px;
-  cursor: pointer;
-  /* color: black; */
+
   border-radius: 5px;
   font-size: 1.5rem;
+  border: none;
+
+  /* box-shadow: 3px 3px 3px 5px #ddd; */
+
+  background: ${props => (props.background ? "orange" : "#ccc")};
+
+  animation: ${props =>
+    props.animation
+      ? css`
+          ${ScaleButton} 1s ease-out;
+          cursor: pointer;
+        `
+      : ""};
+`
+const ScaleButton = keyframes`
+0%{
+  transform : scale(1);
+  color: white;
+}
+80%{
+  transform : scale(1.1);
+  color : white; 
+
+}
+
+
+
 `
