@@ -16,8 +16,6 @@ const enhancer = composeEnhancers(
 
 export const store = createStore(triviaReducer, enhancer)
 
-console.log(store)
-
 // action creators
 
 export const addQuestion = hello => ({ type: "ADD_TO_CARt", payload: hello })
