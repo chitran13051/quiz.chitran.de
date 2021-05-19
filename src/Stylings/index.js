@@ -39,6 +39,8 @@ opacity : 0;
 export const Logo = styled.div`
   color: #ffffff;
   font-size: 6rem;
+  padding-top: 30px;
+  padding-bottom: 20px;
 
   text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
     blue 0px 0px 20px, blue 0px 0px 30px, blue 0px 0px 40px, blue 0px 0px 50px,
