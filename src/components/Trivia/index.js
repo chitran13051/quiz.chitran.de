@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchData } from "../../redux/quiz.actions"
 import { selectQuestion, nextQuestion } from "../../redux/quiz.actions"
-import { Question, Button, Card, Answer } from "../../Stylings"
+import { Question, Button, Card, Answer, PointWrap } from "../../Stylings"
 import { IoBulbOutline } from "react-icons/io5"
+import { GiTwoCoins } from "react-icons/gi"
 import { quizTypes } from "../../redux/quiz.types"
 
 function Trivia() {
@@ -30,27 +31,29 @@ function Trivia() {
   }
   return (
     <Card>
-      <h1>{point}</h1>
+      <PointWrap>
+        <span>{point}</span>
+        <GiTwoCoins style={{ color: "yellow", fontSize: "3rem" }} />
+      </PointWrap>
       <Question>
         <span> {questions[questionIndex].question} </span>{" "}
       </Question>
       {questions[questionIndex].answers.map((answer, i) => {
         const correctAnswer = questions[questionIndex].correct_answer === answer
-        // console.log(answer)
+
         return (
           <Answer
+            disabled={isSubmitted}
             isCorrect={correctAnswer ? "correct" : "wrong"}
             isSubmit={isSubmitted}
             userAnswer={userAnswer === i}
             onClick={e => {
               dispatch({
                 type: quizTypes.SELECT_QUESTION,
-                // payload: e.target.outerText,
                 payload: i,
-                // correct: correctAnswer,
+                correctAnswer,
               })
             }}
-            // background={bgColor}
             key={i}
           >
             {answer}
@@ -69,8 +72,8 @@ function Trivia() {
             })
           }}
         >
-          {isChecked ? "Next Question" : "Check"}
-          <IoBulbOutline />
+          {isSubmitted ? "Next Question" : "Check"}
+          {isSubmitted ? null : <IoBulbOutline />}
         </Button>
       </div>
     </Card>

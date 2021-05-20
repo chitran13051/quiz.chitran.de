@@ -179,22 +179,25 @@ export const Question = styled.div`
 `
 export const Answer = styled.button.attrs(props => {
   console.log(props)
-  switch (props.userAnswer && props.isSubmit && props.isCorrect) {
-    case "correct":
-      return {
-        answerBackground: ` linear-gradient(
-            151deg
-            ,#fcfcfc 0%,#08ff08 100%)`,
-      }
-    case "wrong":
-      return {
-        answerBackground: ` linear-gradient(-180deg, #ff89d6 0%, red 100%)`,
-      }
 
-    default:
-      return {
-        answerBackground: ` linear-gradient(-180deg, #ff89d6 0%, hotpink 100%)`,
-      }
+  if (props.isSubmit && props.isCorrect === "correct") {
+    return {
+      answerBackground: ` linear-gradient(
+      -180deg
+      ,#fcfcfc 0%,#08ff08 100%)`,
+    }
+  } else if (
+    props.isSubmit &&
+    props.isCorrect === "wrong" &&
+    props.userAnswer
+  ) {
+    return {
+      answerBackground: ` linear-gradient(-180deg, #ff89d6 0%, red 100%)`,
+    }
+  } else {
+    return {
+      answerBackground: ` linear-gradient(-180deg, aqua 0%, #89ffe9 100%)`,
+    }
   }
 })`
   cursor: pointer;
@@ -212,10 +215,10 @@ export const Answer = styled.button.attrs(props => {
   border: 1px solid #012880;
   background-image: ${props => props.answerBackground};
   /* linear-gradient(-180deg, #ff89d6 0%, hotpink 100%); */
-  box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
-    0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
-    0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
-    0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+  box-shadow: 0 1rem 1.25rem 0 rgb(22 75 195 / 50%),
+    0 -0.25rem 1.5rem rgb(23 217 199) inset,
+    0 0.75rem 0.5rem rgb(255 255 255 / 40%) inset,
+    0 0.25rem 0.5rem 0 rgb(70 207 194) inset;
 
   &:before {
     content: "";
@@ -250,7 +253,7 @@ export const Answer = styled.button.attrs(props => {
     background: #fff;
     border-radius: 100%;
 
-    filter: blur(1px);
+    /* filter: blur(1px); */
     opacity: 0.05;
     background-image: linear-gradient(
       -270deg,
@@ -259,6 +262,9 @@ export const Answer = styled.button.attrs(props => {
       #ffffff 80%,
       rgba(255, 255, 255, 0) 100%
     );
+  }
+  &:disabled {
+    color: black;
   }
   /* &:hover {
     background-image: linear-gradient(-180deg, #ff89d6 0%, blue 100%);
@@ -298,4 +304,10 @@ const ScaleButton = keyframes`
     transform : scale(1.1);
     color : white; 
   }
+`
+
+export const PointWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 `

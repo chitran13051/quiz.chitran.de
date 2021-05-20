@@ -29,20 +29,15 @@ export const triviaReducer = (state = triviaInitState, action) => {
       return {
         ...state,
         userAnswer: action.payload,
-        correctAnswer: action.correct,
+        correctAnswer: action.correctAnswer,
         isSelected: true,
       }
     case quizTypes.CHECK_QUESTION:
-      // console.log("user: ", state.userAnswer)
-      // console.log("correct : ", state.correctAnswer)
       return {
         ...state,
         isSubmitted: true,
 
-        point:
-          state.userAnswer === state.correctAnswer
-            ? state.point + 1
-            : state.point,
+        point: state.correctAnswer ? state.point + 1000 : state.point,
         currentQuestionIndex: state.questionIndex,
       }
     case quizTypes.NEXT_QUESTION:
