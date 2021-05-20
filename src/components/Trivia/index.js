@@ -8,9 +8,15 @@ import { quizTypes } from "../../redux/quiz.types"
 
 function Trivia() {
   const dispatch = useDispatch()
-  const { questions, questionIndex, isSelected, isChecked } = useSelector(
-    state => state
-  )
+  const {
+    questions,
+    questionIndex,
+    isSelected,
+    isChecked,
+    point,
+    isSubmitted,
+    userAnswer,
+  } = useSelector(state => state)
   console.log(isSelected)
   const handleFetchData = () => {
     dispatch(fetchData)
@@ -24,16 +30,27 @@ function Trivia() {
   }
   return (
     <Card>
+      <h1>{point}</h1>
       <Question>
         <span> {questions[questionIndex].question} </span>{" "}
       </Question>
       {questions[questionIndex].answers.map((answer, i) => {
-        const bgColor = questions[questionIndex].correct_answer
-
+        const correctAnswer = questions[questionIndex].correct_answer === answer
+        // console.log(answer)
         return (
           <Answer
-            onClick={e => dispatch(selectQuestion(e.target.outerText))}
-            background={bgColor}
+            isCorrect={correctAnswer ? "correct" : "wrong"}
+            isSubmit={isSubmitted}
+            userAnswer={userAnswer === i}
+            onClick={e => {
+              dispatch({
+                type: quizTypes.SELECT_QUESTION,
+                // payload: e.target.outerText,
+                payload: i,
+                // correct: correctAnswer,
+              })
+            }}
+            // background={bgColor}
             key={i}
           >
             {answer}
@@ -46,10 +63,12 @@ function Trivia() {
           disabled={!isSelected}
           background={isSelected}
           animation={isSelected}
-          onClick={() => dispatch(nextQuestion(questionIndex))}
-          // {...(isSelected ? (background = "orange") : (background = "#ccc"))}
+          onClick={() => {
+            dispatch({
+              type: quizTypes.CHECK_QUESTION,
+            })
+          }}
         >
-          {/* {isSelected && background = 'orange'} */}
           {isChecked ? "Next Question" : "Check"}
           <IoBulbOutline />
         </Button>

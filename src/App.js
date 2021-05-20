@@ -1,9 +1,7 @@
+import { Route, Switch } from "react-router-dom"
 import "./App.css"
-import { Switch, Route, Link } from "react-router-dom"
-import Trivia from "./components/Trivia"
-import Play from "./pages/Play"
-import Layout from "./components/Trivia/Layout"
 import Home from "./pages/Home"
+import Play from "./pages/Play"
 
 function App() {
   return (

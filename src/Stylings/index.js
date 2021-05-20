@@ -3,8 +3,8 @@ import BgImg from "./bg.jpg"
 
 export const GlobalStyle = createGlobalStyle`
   *{
-      margin:0;
-      padding: 0;
+      margin:   0;
+         padding: 0;
       box-sizing: border-box;
   }
   .wrapper{
@@ -56,18 +56,18 @@ export const Logo = styled.div`
   animation-iteration-count: ease-in;
 `
 const FallAnimation = keyframes`
-0%  {
-transform : translateY(-200px)
-}
+  0%  {
+   transform : translateY(-200px)
+  }
 
-80% {
-    /* opacity : 1; */
+  80% {
+      /* opacity : 1; */
     transform : translateY(100px);
     box-shadow: inset 0px -7px 0px 3px #bce9f6,
     inset -1px 14px 11px 0px rgb(255 255 255 / 38%),
     inset 0px -20px 6px 3px rgb(0 0 0 / 40%), 0 0 1px #000;
 
-}
+  }
 `
 
 export const StartButton = styled.button`
@@ -178,26 +178,22 @@ export const Question = styled.div`
   box-shadow: 9px -4px 20px 0px navy;
 `
 export const Answer = styled.button.attrs(props => {
-  switch (props.background) {
+  console.log(props)
+  switch (props.userAnswer && props.isSubmit && props.isCorrect) {
     case "correct":
       return {
-        answerBackground: "green",
+        answerBackground: ` linear-gradient(
+            151deg
+            ,#fcfcfc 0%,#08ff08 100%)`,
       }
-    case "incorrect":
+    case "wrong":
       return {
-        answerBackground: "red",
+        answerBackground: ` linear-gradient(-180deg, #ff89d6 0%, red 100%)`,
       }
-    case "check":
-      return {
-        answerBackground: "blue",
-      }
-    case "disable":
-      return {
-        answerBackground: "#ccc",
-      }
+
     default:
       return {
-        answerBackground: "orange",
+        answerBackground: ` linear-gradient(-180deg, #ff89d6 0%, hotpink 100%)`,
       }
   }
 })`
@@ -214,7 +210,8 @@ export const Answer = styled.button.attrs(props => {
   font-weight: 600;
 
   border: 1px solid #012880;
-  background-image: linear-gradient(-180deg, #ff89d6 0%, hotpink 100%);
+  background-image: ${props => props.answerBackground};
+  /* linear-gradient(-180deg, #ff89d6 0%, hotpink 100%); */
   box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
     0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
     0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
@@ -293,16 +290,12 @@ export const Button = styled.button`
       : ""};
 `
 const ScaleButton = keyframes`
-0%{
-  transform : scale(1);
-  color: white;
-}
-80%{
-  transform : scale(1.1);
-  color : white; 
-
-}
-
-
-
+  0%{
+    transform : scale(1);
+    color: white;
+  }
+  80%{
+    transform : scale(1.1);
+    color : white; 
+  }
 `

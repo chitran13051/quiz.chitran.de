@@ -9,6 +9,7 @@ const triviaInitState = {
   isSubmitted: false,
   isSelected: false,
   userAnswer: null,
+  correctAnswer: null,
   isChecked: false,
 }
 
@@ -25,16 +26,23 @@ export const triviaReducer = (state = triviaInitState, action) => {
         error: "Something gone wrong !!!!",
       }
     case quizTypes.SELECT_QUESTION:
-      console.log(action.payload)
       return {
         ...state,
         userAnswer: action.payload,
+        correctAnswer: action.correct,
         isSelected: true,
       }
     case quizTypes.CHECK_QUESTION:
+      // console.log("user: ", state.userAnswer)
+      // console.log("correct : ", state.correctAnswer)
       return {
         ...state,
+        isSubmitted: true,
 
+        point:
+          state.userAnswer === state.correctAnswer
+            ? state.point + 1
+            : state.point,
         currentQuestionIndex: state.questionIndex,
       }
     case quizTypes.NEXT_QUESTION:
@@ -43,6 +51,7 @@ export const triviaReducer = (state = triviaInitState, action) => {
         questionIndex: state.questionIndex + 1,
         currentQuestionIndex: state.questionIndex,
         isChecked: true,
+        isSubmitted: false,
       }
     default:
       return state
