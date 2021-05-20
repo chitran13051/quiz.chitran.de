@@ -2,45 +2,44 @@ import styled, { createGlobalStyle, keyframes, css } from "styled-components"
 import BgImg from "./bg.jpg"
 
 export const GlobalStyle = createGlobalStyle`
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.wrapper{
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    background:url(${BgImg});
-    background-size: cover;
-  
-  
-  header{
-      height: 200px;
+  *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
   }
-   footer{
-     height: 50px
-   }
-  main{
-flex: 1;
+  .wrapper{
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
+      background:url(${BgImg});
+      background-size: cover;
+    
+    
+    header{
+        height: 200px;
+    }
+    footer{
+      height: 50px;
+    }
+    main{
+  flex: 1;
+    }
   }
-}
 
 `
 //////////////////////
 //Home Page Styling
 ///////////////////////
 const PressAnimation = keyframes`
-0%{
-opacity : 0;
-}
+  0% {
+  opacity: 0;
+  }
 
-80%{
-    opacity : 1;
-   
+  80%{
+ opacity: 1;
+    
 
-}
-
+  }
 `
 export const Logo = styled.div`
   color: #ffffff;
@@ -57,11 +56,11 @@ export const Logo = styled.div`
   animation-iteration-count: ease-in;
 `
 const FallAnimation = keyframes`
-0%{
+0%  {
 transform : translateY(-200px)
 }
 
-80%{
+80% {
     /* opacity : 1; */
     transform : translateY(100px);
     box-shadow: inset 0px -7px 0px 3px #bce9f6,
