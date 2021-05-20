@@ -35,3 +35,6 @@ export const nextQuestion = payload => ({
   type: quizTypes.NEXT_QUESTION,
   payload,
 })
+export const playSound = audioFile => {
+  audioFile.play()
+}

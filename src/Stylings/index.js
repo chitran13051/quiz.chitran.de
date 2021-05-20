@@ -178,8 +178,6 @@ export const Question = styled.div`
   box-shadow: 9px -4px 20px 0px navy;
 `
 export const Answer = styled.button.attrs(props => {
-  console.log(props)
-
   if (props.isSubmit && props.isCorrect === "correct") {
     return {
       answerBackground: ` linear-gradient(
@@ -196,7 +194,7 @@ export const Answer = styled.button.attrs(props => {
     }
   } else {
     return {
-      answerBackground: ` linear-gradient(-180deg, aqua 0%, #89ffe9 100%)`,
+      answerBackground: null,
     }
   }
 })`
@@ -229,7 +227,7 @@ export const Answer = styled.button.attrs(props => {
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 7.5rem);
-    background: #fff;
+
     border-radius: 100%;
 
     opacity: 0.7;
@@ -250,26 +248,15 @@ export const Answer = styled.button.attrs(props => {
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 7.5rem);
-    background: #fff;
+
     border-radius: 100%;
 
-    /* filter: blur(1px); */
     opacity: 0.05;
-    background-image: linear-gradient(
-      -270deg,
-      rgba(255, 255, 255, 0) 0%,
-      #ffffff 20%,
-      #ffffff 80%,
-      rgba(255, 255, 255, 0) 100%
-    );
   }
   &:disabled {
     color: black;
   }
-  /* &:hover {
-    background-image: linear-gradient(-180deg, #ff89d6 0%, blue 100%);
-    color: white;
-  } */
+
   &:focus {
     background-image: linear-gradient(-180deg, #ff89d6 0%, blue 100%);
     color: white;
@@ -309,5 +296,15 @@ const ScaleButton = keyframes`
 export const PointWrap = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  font-weight: 900;
+
+  color: white;
+`
+
+export const Result = styled.div`
+  width: 50%;
+  height: 50%;
+  background: green;
 `

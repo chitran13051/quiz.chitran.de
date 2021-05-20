@@ -3,14 +3,13 @@ import Layout from "../components/Trivia/Layout"
 import { GiSoundOn, GiSoundOff } from "react-icons/gi"
 import { Link } from "react-router-dom"
 import { StartButton, Text, ToggleButton } from "../Stylings"
+import { playSound } from "../redux/quiz.actions"
 import click from "../Stylings/click.mp3"
 import start from "../Stylings/start.mp3"
 
 const clickAudio = new Audio(click)
 const startAudio = new Audio(start)
-const playSound = audioFile => {
-  audioFile.play()
-}
+
 export default function Home() {
   const [On, setOn] = useState(false)
   useEffect(() => {

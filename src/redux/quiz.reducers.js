@@ -10,7 +10,6 @@ const triviaInitState = {
   isSelected: false,
   userAnswer: null,
   correctAnswer: null,
-  isChecked: false,
 }
 
 export const triviaReducer = (state = triviaInitState, action) => {
@@ -45,7 +44,7 @@ export const triviaReducer = (state = triviaInitState, action) => {
         ...state,
         questionIndex: state.questionIndex + 1,
         currentQuestionIndex: state.questionIndex,
-        isChecked: true,
+        isSelected: false,
         isSubmitted: false,
       }
     default:
