@@ -16,7 +16,7 @@ export const triviaReducer = (state = triviaInitState, action) => {
   switch (action.type) {
     case quizTypes.ADD_QUESTION_SUCCESS:
       return {
-        ...state,
+        ...triviaInitState,
         questions: action.questions,
       }
     case quizTypes.ADD_QUESTION_FAIL:

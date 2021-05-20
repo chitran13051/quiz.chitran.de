@@ -12,6 +12,8 @@ import {
 } from "../../Stylings"
 import { IoBulbOutline } from "react-icons/io5"
 import { GiTwoCoins } from "react-icons/gi"
+import { TiDeleteOutline } from "react-icons/ti"
+import { BsArrowClockwise } from "react-icons/bs"
 import { quizTypes } from "../../redux/quiz.types"
 import { Link } from "react-router-dom"
 
@@ -40,8 +42,20 @@ function Trivia() {
   if (questionIndex === questions.length) {
     return (
       <Result>
-        <h1>Congratulations!!!!!</h1>
-        <button onClick={() => handleFetchData()}>Play Again</button>
+        <h1>COMPLETE!</h1>
+        <h3 style={{ color: "orange" }}>Score: {point}</h3>
+        <>
+          {" "}
+          <Button background onClick={() => handleFetchData()}>
+            Play Again <BsArrowClockwise />
+          </Button>
+        </>
+        <Button
+          style={{ background: "red", marginLeft: "10px" }}
+          onClick={() => handleFetchData()}
+        >
+          Quit <TiDeleteOutline />
+        </Button>
       </Result>
     )
   }

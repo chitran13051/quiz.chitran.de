@@ -14,6 +14,7 @@ export const fetchData = (x, y) => {
         const answers = sortArray([...incorrect_answers, correct_answer])
         return { ...item, answers, userAnswers: [], isSubmit: false }
       })
+      console.log("added...")
       store.dispatch({
         type: quizTypes.ADD_QUESTION_SUCCESS,
         questions,

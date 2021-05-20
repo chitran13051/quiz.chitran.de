@@ -6,6 +6,9 @@ export const GlobalStyle = createGlobalStyle`
       margin:   0;
          padding: 0;
       box-sizing: border-box;
+      font-family: 'Luckiest Guy', cursive;
+      letter-spacing: 2px
+      
   }
   .wrapper{
       display: flex;
@@ -264,7 +267,7 @@ export const Answer = styled.button.attrs(props => {
 `
 export const Button = styled.button`
   padding: 1rem;
-  margin-top: 15px;
+  margin: 35px 0;
 
   border-radius: 5px;
   font-size: 1.5rem;
@@ -285,11 +288,11 @@ export const Button = styled.button`
 const ScaleButton = keyframes`
   0%{
     transform : scale(1);
-    color: white;
+    
   }
   80%{
     transform : scale(1.1);
-    color : white; 
+  
   }
 `
 
@@ -306,5 +309,13 @@ export const PointWrap = styled.div`
 export const Result = styled.div`
   width: 50%;
   height: 50%;
-  background: green;
+  margin: 10% auto;
+
+  font-size: 1.7rem;
+  color: hotpink;
+
+  /* text-shadow: 0 0 2px #fff, –1px –1px 0 hsl(80, 70%, 35%),
+    –2px –2px 1px hsl(80, 70%, 35%), –2px –2px 2px hsl(80, 10%, 15%); */
+  text-shadow: 5px 5px #fff;
+  animation: ${ScaleButton} 5s infinite;
 `
