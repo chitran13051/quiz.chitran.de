@@ -27,10 +27,12 @@ function Trivia() {
     point,
     isSubmitted,
     userAnswer,
+
+    sessionId,
   } = useSelector(state => state)
   console.log(isSelected)
   const handleFetchData = () => {
-    dispatch(fetchData)
+    dispatch(fetchData(sessionId))
   }
   useEffect(() => {
     dispatch(fetchData)
@@ -69,7 +71,7 @@ function Trivia() {
         </span>
       </PointWrap>
       <Question>
-        <span> {questions[questionIndex].question} </span>{" "}
+        <span> {atob(questions[questionIndex].question)} </span>{" "}
       </Question>
       {questions[questionIndex].answers.map((answer, i) => {
         const correctAnswer = questions[questionIndex].correct_answer === answer
@@ -89,7 +91,7 @@ function Trivia() {
             }}
             key={i}
           >
-            {answer}
+            {atob(answer)}
           </Answer>
         )
       })}

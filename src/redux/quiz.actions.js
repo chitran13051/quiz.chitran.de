@@ -1,11 +1,13 @@
 import { quizTypes } from "./quiz.types"
 
 import { store } from "./store"
-import { sortArray } from "./quiz.helpers"
+import { sortArray, getSessionId } from "./quiz.helpers"
 
-const urlAPI = "https://opentdb.com/api.php?amount=10"
+const urlAPI = "https://opentdb.com/api.php?amount=10&encode=base64"
 
-export const fetchData = (x, y) => {
+export const fetchData = async sessionId => {
+  const sesionId = await getSessionId()
+
   fetch(urlAPI)
     .then(res => res.json())
     .then(data => {

@@ -10,6 +10,7 @@ const triviaInitState = {
   isSelected: false,
   userAnswer: null,
   correctAnswer: null,
+  sessionId: null,
 }
 
 export const triviaReducer = (state = triviaInitState, action) => {
