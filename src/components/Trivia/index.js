@@ -28,14 +28,18 @@ function Trivia() {
     isSubmitted,
     userAnswer,
 
-    sessionId,
+    categoryId,
   } = useSelector(state => state)
-  console.log(isSelected)
-  const handleFetchData = () => {
-    dispatch(() => fetchData(sessionId))
+
+  const handleFetchData = categoryId => {
+    const urlAPI = categoryId
+      ? `https://opentdb.com/api.php?amount=10&encode=base64&category=${categoryId}`
+      : "https://opentdb.com/api.php?amount=10&encode=base64"
+    console.log(urlAPI)
+    dispatch(() => fetchData(urlAPI))
   }
   useEffect(() => {
-    dispatch(fetchData)
+    handleFetchData(categoryId)
   }, [])
 
   if (questions.length === 0) {
@@ -58,7 +62,7 @@ function Trivia() {
         </>
         <Button
           style={{ background: "red", marginLeft: "10px", cursor: "pointer" }}
-          onClick={() => handleFetchData()}
+          onClick={() => handleFetchData(categoryId)}
         >
           Quit <TiDeleteOutline />
         </Button>

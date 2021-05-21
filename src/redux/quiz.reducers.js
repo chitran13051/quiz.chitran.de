@@ -10,11 +10,17 @@ const triviaInitState = {
   isSelected: false,
   userAnswer: null,
   correctAnswer: null,
-  sessionId: null,
+  categoryId: null,
 }
 
 export const triviaReducer = (state = triviaInitState, action) => {
   switch (action.type) {
+    case quizTypes.SELECT_CATEGORY:
+      return {
+        ...state,
+        categoryId: action.payload,
+      }
+
     case quizTypes.ADD_QUESTION_SUCCESS:
       return {
         ...triviaInitState,

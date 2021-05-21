@@ -3,14 +3,17 @@ import { quizTypes } from "./quiz.types"
 import { store } from "./store"
 import { sortArray, getSessionId } from "./quiz.helpers"
 
-const urlAPI = "https://opentdb.com/api.php?amount=10&encode=base64"
-
-export const fetchData = async sessionId => {
+export const fetchData = async urlAPI => {
   // const sessionId = await getSessionId()
+  // let urlAPI
+  // if (!categoryId) {
+  //   urlAPI = defaultUrl
+  // }
 
   fetch(urlAPI)
     .then(res => res.json())
     .then(data => {
+      console.log(data)
       const questions = data.results.map((item, i) => {
         const { correct_answer, incorrect_answers } = item
         const answers = sortArray([...incorrect_answers, correct_answer])
@@ -28,6 +31,11 @@ export const fetchData = async sessionId => {
       })
     )
 }
+
+export const selectCategory = payload => ({
+  type: quizTypes.SELECT_CATEGORY,
+  payload,
+})
 
 export const selectQuestion = payload => ({
   type: quizTypes.SELECT_QUESTION,

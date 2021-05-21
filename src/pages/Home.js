@@ -43,7 +43,11 @@ export default function Home() {
       </div>
       <Category></Category>
       <Link style={{ textDecoration: "none", margin: "10px" }} to="/play">
-        <StartButton onClick={() => playSound(clickAudio)}></StartButton>
+        <StartButton
+          onClick={() => {
+            playSound(clickAudio)
+          }}
+        ></StartButton>
         <Text>PRESS HERE</Text>
       </Link>
     </Layout>

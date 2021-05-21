@@ -5,7 +5,7 @@ export default function PageNotFound() {
   return (
     <Layout>
       <h1>
-        !Opssssss .. look likes page not found!!<Link to="/">Back to Home</Link>
+        !Opssssss .. looks like page not found!!<Link to="/">Back to Home</Link>
       </h1>
     </Layout>
   )
