@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
       margin:   0;
          padding: 0;
       box-sizing: border-box;
-      font-family: 'Luckiest Guy', cursive;
+      
       letter-spacing: 2px
       
   }
@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
       flex-direction: column;
       background:url(${BgImg});
       background-size: cover;
-    
+      font-family: "Mako", sans-serif;
     
     header{
         height: 200px;
@@ -49,6 +49,8 @@ export const Logo = styled.div`
   font-size: 6rem;
   padding-top: 30px;
   padding-bottom: 20px;
+
+  font-family: "Luckiest Guy", cursive;
 
   text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
     blue 0px 0px 20px, blue 0px 0px 30px, blue 0px 0px 40px, blue 0px 0px 50px,
@@ -268,6 +270,7 @@ export const Answer = styled.button.attrs(props => {
 export const Button = styled.button`
   padding: 1rem;
   margin: 35px 0;
+  font-family: "Luckiest Guy", cursive;
 
   border-radius: 5px;
   font-size: 1.5rem;
@@ -302,7 +305,7 @@ export const PointWrap = styled.div`
   justify-content: space-between;
 
   font-weight: 900;
-
+  font-family: "Luckiest Guy", cursive;
   color: white;
 `
 
@@ -312,6 +315,7 @@ export const Result = styled.div`
   margin: 10% auto;
 
   font-size: 1.7rem;
+  font-family: "Luckiest Guy", cursive;
   color: hotpink;
 
   /* text-shadow: 0 0 2px #fff, –1px –1px 0 hsl(80, 70%, 35%),

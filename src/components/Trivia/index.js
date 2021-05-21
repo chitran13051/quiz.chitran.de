@@ -32,7 +32,7 @@ function Trivia() {
   } = useSelector(state => state)
   console.log(isSelected)
   const handleFetchData = () => {
-    dispatch(fetchData(sessionId))
+    dispatch(() => fetchData(sessionId))
   }
   useEffect(() => {
     dispatch(fetchData)
@@ -48,12 +48,16 @@ function Trivia() {
         <h3 style={{ color: "orange" }}>Score: {point}</h3>
         <>
           {" "}
-          <Button background onClick={() => handleFetchData()}>
+          <Button
+            style={{ cursor: "pointer" }}
+            background
+            onClick={() => handleFetchData()}
+          >
             Play Again <BsArrowClockwise />
           </Button>
         </>
         <Button
-          style={{ background: "red", marginLeft: "10px" }}
+          style={{ background: "red", marginLeft: "10px", cursor: "pointer" }}
           onClick={() => handleFetchData()}
         >
           Quit <TiDeleteOutline />
