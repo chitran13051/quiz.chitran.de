@@ -196,7 +196,6 @@ export const CategoryStyle = styled(ReactSelect)`
     }
   }
   & .Select-placeholder {
-    outline: none;
     font-size: smaller;
   }
 `
