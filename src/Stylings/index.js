@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
       background:url(${BgImg});
       background-size: cover;
       font-family: "Mako", sans-serif;
+      outline: none;
     
     
     header{
@@ -164,6 +165,31 @@ export const ToggleButton = styled.input.attrs({ type: "checkbox" })`
     background-color: white;
   }
 `
+
+//////////////////////
+///Category Styling///
+export const CategoryStyle = styled.div`
+  font-family: "Luckiest Guy", cursive;
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+  max-width: 70%;
+  margin: 3% auto 0 auto;
+  > * {
+    margin-top: 5px;
+    cursor: pointer;
+
+    color: violet;
+    border-radius: 36px;
+    background: white;
+    padding: 1rem;
+    &:hover {
+      color: orange;
+    }
+  }
+`
+
 //////////////////////
 //Play Page Styling
 ///////////////////////
@@ -171,6 +197,7 @@ export const ToggleButton = styled.input.attrs({ type: "checkbox" })`
 export const Card = styled.div`
   width: 50%;
   height: 50vh;
+  max-height: 100vh;
   margin: 0 auto;
   @media (max-width: 768px) {
     width: 80%;
@@ -210,7 +237,7 @@ export const Answer = styled.button.attrs(props => {
   cursor: pointer;
   position: relative;
   width: 100%;
-  height: 70px;
+  /* height: auto; */
   padding: 1rem;
 
   margin-top: 15px;
@@ -322,8 +349,6 @@ export const Result = styled.div`
   font-family: "Luckiest Guy", cursive;
   color: hotpink;
 
-  /* text-shadow: 0 0 2px #fff, –1px –1px 0 hsl(80, 70%, 35%),
-    –2px –2px 1px hsl(80, 70%, 35%), –2px –2px 2px hsl(80, 10%, 15%); */
   text-shadow: 5px 5px #fff;
   animation: ${ScaleButton} 5s infinite;
 `

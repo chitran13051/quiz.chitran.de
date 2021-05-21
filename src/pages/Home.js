@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/Trivia/Layout"
+import Category from "../components/Category"
 import { GiSoundOn, GiSoundOff } from "react-icons/gi"
 import { Link } from "react-router-dom"
 import { StartButton, Text, ToggleButton } from "../Stylings"
@@ -40,6 +41,7 @@ export default function Home() {
           />
         )}
       </div>
+      <Category></Category>
       <Link style={{ textDecoration: "none", margin: "10px" }} to="/play">
         <StartButton onClick={() => playSound(clickAudio)}></StartButton>
         <Text>PRESS HERE</Text>
