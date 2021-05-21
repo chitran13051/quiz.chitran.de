@@ -1,3 +1,4 @@
+import PageNotFound from "pages/404"
 import { Route, Switch } from "react-router-dom"
 import "./App.css"
 import Home from "./pages/Home"
@@ -12,6 +13,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route>
+          <PageNotFound />
         </Route>
       </Switch>
     </div>
