@@ -10,26 +10,44 @@ export const fetchData = async urlAPI => {
   //   urlAPI = defaultUrl
   // }
 
-  fetch(urlAPI)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      const questions = data.results.map((item, i) => {
-        const { correct_answer, incorrect_answers } = item
-        const answers = sortArray([...incorrect_answers, correct_answer])
-        return { ...item, answers, userAnswers: [], isSubmit: false }
-      })
-      console.log("added...")
-      store.dispatch({
-        type: quizTypes.ADD_QUESTION_SUCCESS,
-        questions,
-      })
+  try {
+    const response = await fetch(urlAPI)
+    const data = await response.json()
+    const questions = data.results.map((item, i) => {
+      const { correct_answer, incorrect_answers } = item
+      const answers = sortArray([...incorrect_answers, correct_answer])
+      return { ...item, answers, userAnswers: [], isSubmit: false }
     })
-    .catch(err =>
-      store.dispatch({
-        type: quizTypes.ADD_QUESTION_FAIL,
-      })
-    )
+    store.dispatch({
+      type: quizTypes.ADD_QUESTION_SUCCESS,
+      questions,
+    })
+  } catch (error) {
+    store.dispatch({
+      type: quizTypes.ADD_QUESTION_FAIL,
+    })
+  }
+
+  // fetch(urlAPI)
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log(data)
+  //     const questions = data.results.map((item, i) => {
+  //       const { correct_answer, incorrect_answers } = item
+  //       const answers = sortArray([...incorrect_answers, correct_answer])
+  //       return { ...item, answers, userAnswers: [], isSubmit: false }
+  //     })
+  //     console.log("added...")
+  //     store.dispatch({
+  //       type: quizTypes.ADD_QUESTION_SUCCESS,
+  //       questions,
+  //     })
+  //   })
+  //   .catch(err =>
+  //     store.dispatch({
+  //       type: quizTypes.ADD_QUESTION_FAIL,
+  //     })
+  //   )
 }
 
 export const selectCategory = payload => ({

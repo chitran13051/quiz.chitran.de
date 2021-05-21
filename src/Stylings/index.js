@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle, keyframes, css } from "styled-components"
+import ReactSelect from "react-select"
 import BgImg from "./bg.jpg"
 
 export const GlobalStyle = createGlobalStyle`
@@ -168,25 +169,35 @@ export const ToggleButton = styled.input.attrs({ type: "checkbox" })`
 
 //////////////////////
 ///Category Styling///
-export const CategoryStyle = styled.div`
-  font-family: "Luckiest Guy", cursive;
-  display: flex;
-  justify-content: space-between;
+// export const CategoryStyle = styled.div`
+//   font-family: "Luckiest Guy", cursive;
 
-  flex-wrap: wrap;
-  max-width: 70%;
-  margin: 3% auto 0 auto;
-  > * {
-    margin-top: 5px;
-    cursor: pointer;
+//   margin: 3% auto 0 auto;
+//   > * {
+//     margin-top: 5px;
+//     cursor: pointer;
 
-    color: violet;
-    border-radius: 36px;
-    background: white;
-    padding: 1rem;
-    &:hover {
-      color: orange;
+//     color: violet;
+//     border-radius: 36px;
+//     background: white;
+//     padding: 1rem;
+//     &:hover {
+//       color: orange;
+//     }
+//   }
+// `
+export const CategoryStyle = styled(ReactSelect)`
+  max-width: 300px;
+  margin: 30px auto 0;
+  &.Select--multi {
+    .Select-value {
+      display: inline-flex;
+      align-items: center;
     }
+  }
+  & .Select-placeholder {
+    outline: none;
+    font-size: smaller;
   }
 `
 
@@ -306,6 +317,8 @@ export const Button = styled.button`
   border-radius: 5px;
   font-size: 1.5rem;
   border: none;
+
+  width: 100%;
 
   /* box-shadow: 3px 3px 3px 5px #ddd; */
 

@@ -33,8 +33,8 @@ function Trivia() {
 
   const handleFetchData = categoryId => {
     const urlAPI = categoryId
-      ? `https://opentdb.com/api.php?amount=10&encode=base64&category=${categoryId}`
-      : "https://opentdb.com/api.php?amount=10&encode=base64"
+      ? `https://opentdb.com/api.php?amount=2&encode=base64&category=${categoryId}`
+      : "https://opentdb.com/api.php?amount=2&encode=base64"
     console.log(urlAPI)
     dispatch(() => fetchData(urlAPI))
   }
@@ -55,9 +55,16 @@ function Trivia() {
           <Button
             style={{ cursor: "pointer" }}
             background
-            onClick={() => handleFetchData()}
+            onClick={() =>
+              dispatch({
+                type: quizTypes.RESET_GAME,
+              })
+            }
           >
-            Play Again <BsArrowClockwise />
+            <Link to="/">
+              {" "}
+              Play Again <BsArrowClockwise />
+            </Link>
           </Button>
         </>
         <Button

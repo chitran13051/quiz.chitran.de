@@ -5,7 +5,7 @@ const triviaInitState = {
   error: null,
   questionIndex: 0,
   point: 0,
-  currentQuestionIndex: 0,
+
   isSubmitted: false,
   isSelected: false,
   userAnswer: null,
@@ -44,15 +44,21 @@ export const triviaReducer = (state = triviaInitState, action) => {
         isSubmitted: true,
 
         point: state.correctAnswer ? state.point + 1000 : state.point,
-        currentQuestionIndex: state.questionIndex,
       }
     case quizTypes.NEXT_QUESTION:
       return {
         ...state,
         questionIndex: state.questionIndex + 1,
-        currentQuestionIndex: state.questionIndex,
+
         isSelected: false,
         isSubmitted: false,
+      }
+    case quizTypes.RESET_GAME:
+      return {
+        ...state,
+        questions: [],
+
+        categoryId: null,
       }
     default:
       return state

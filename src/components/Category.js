@@ -13,20 +13,28 @@ const categoriesName = [
   "History",
   "Art",
 ]
+const options = [
+  { value: 17, label: "Science" },
+  { value: 18, label: "Computers" },
+  { value: 21, label: "Sports" },
+  { value: 22, label: "Geography" },
+  { value: 23, label: "History" },
+  { value: 25, label: "Art" },
+]
 export default function Category() {
   const dispatch = useDispatch()
   const { categoryId } = useSelector(state => state)
 
   return (
-    <CategoryStyle>
-      {/* <h3>All</h3>
-      <h3>Science & Nature</h3>
-      <h3>Computers</h3>
-      <h3>Sports</h3>
-      <h3>Geography</h3>
-      <h3>History</h3>
-      <h3>Art</h3> */}
-      <select
+    <CategoryStyle
+      defaltValue={null}
+      onChange={e => dispatch(selectCategory(e.value))}
+      options={options}
+      placeholder="All"
+    />
+  )
+  {
+    /* <select
         onChange={e => {
           console.log(e.target.value)
           const cateId = categoriesNumber[e.target.value]
@@ -39,7 +47,9 @@ export default function Category() {
             {cate}{" "}
           </option>
         ))}
-      </select>
-    </CategoryStyle>
-  )
+      </select> */
+  }
+  {
+    /* </CategoryStyle> */
+  }
 }
