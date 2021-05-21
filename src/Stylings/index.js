@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
       background-size: cover;
       font-family: "Mako", sans-serif;
     
+    
     header{
         height: 200px;
     }
@@ -171,6 +172,9 @@ export const Card = styled.div`
   width: 50%;
   height: 50vh;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `
 
 export const Question = styled.div`
