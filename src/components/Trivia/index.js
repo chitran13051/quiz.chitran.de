@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { fetchData } from "../../redux/quiz.actions"
+import { fetchData, playSound } from "../../redux/quiz.actions"
 import { selectQuestion, nextQuestion } from "../../redux/quiz.actions"
 import {
   Question,
@@ -16,14 +16,17 @@ import { TiDeleteOutline } from "react-icons/ti"
 import { BsArrowClockwise } from "react-icons/bs"
 import { quizTypes } from "../../redux/quiz.types"
 import { Link } from "react-router-dom"
-
+import Coinsdrop from "../../Stylings/coinsdrop.mp3"
+import Lose from "../../Stylings/lose.mp3"
+const coinsdropAudio = new Audio(Coinsdrop)
+const loseAudio = new Audio(Lose)
 function Trivia() {
   const dispatch = useDispatch()
   const {
     questions,
     questionIndex,
     isSelected,
-
+    correctAnswer,
     point,
     isSubmitted,
     userAnswer,
@@ -41,6 +44,11 @@ function Trivia() {
   useEffect(() => {
     handleFetchData(categoryId)
   }, [])
+  useEffect(() => {
+    if (isSubmitted) {
+      correctAnswer ? playSound(coinsdropAudio) : playSound(loseAudio)
+    }
+  }, [isSubmitted])
 
   if (questions.length === 0) {
     return <h1>Loading ...</h1>

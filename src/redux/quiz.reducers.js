@@ -49,7 +49,7 @@ export const triviaReducer = (state = triviaInitState, action) => {
       return {
         ...state,
         questionIndex: state.questionIndex + 1,
-
+        correctAnswer: null,
         isSelected: false,
         isSubmitted: false,
       }

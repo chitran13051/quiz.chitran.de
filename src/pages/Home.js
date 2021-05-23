@@ -8,6 +8,8 @@ import { playSound } from "../redux/quiz.actions"
 import click from "../Stylings/click.mp3"
 import start from "../Stylings/start.mp3"
 
+import SEO from "../components/Seo"
+
 const clickAudio = new Audio(click)
 const startAudio = new Audio(start)
 
@@ -21,6 +23,7 @@ export default function Home() {
   }
   return (
     <Layout>
+      <SEO title="Home | quiz.chitran.de" />
       <div className="toggle-btn">
         <ToggleButton onClick={Toggle} />
         {On ? (
@@ -41,7 +44,7 @@ export default function Home() {
           />
         )}
       </div>
-      <Category></Category>
+      <Category />
       <Link style={{ textDecoration: "none", margin: "10px" }} to="/play">
         <StartButton
           onClick={() => {

@@ -4,9 +4,18 @@ import "./App.css"
 import Home from "./pages/Home"
 import Play from "./pages/Play"
 
+import { Helmet } from "react-helmet"
+
 function App() {
   return (
     <div className="App">
+      <Helmet>
+        <title>Quiz App </title>
+        <meta
+          name="description"
+          content="Get into for all your favorite movies and series"
+        />
+      </Helmet>
       <Switch>
         <Route path="/play">
           <Play />

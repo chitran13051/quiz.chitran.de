@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
       box-sizing: border-box;
       
       letter-spacing: 2px
+      min-height: 100vh
       
   }
   .wrapper{
