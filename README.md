@@ -1,6 +1,34 @@
-# React Trivia Game
+# React Trivia Game in React
 
 ## [Live-Demo] (https://trivia-game-chitran.netlify.app/)
+
+## A Quiz App built with Reactjs
+
+- API calls to [Free Trivia DB](https://opentdb.com/api_config.php)
+- User can choose questions from a list of categories
+- Check button: Show user's selected answer is correct or not
+- User get coins in case having a correct answer
+- Set play again / quit option
+
+## Categories:
+
+- All (by default)
+- Science and Nature
+- Computers
+- Sports
+- History
+- Art
+
+## User Journey
+
+- land on page
+- select a category (optional)
+- start game:
+  - 10 Question appear in sequence
+  - Check if answer is correct or not
+  - Next question
+  - See the Coins on display
+  - Play again or quit ?
 
 ## Issues :
 
