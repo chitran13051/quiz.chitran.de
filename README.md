@@ -8,7 +8,7 @@
 - User can choose questions from a list of categories
 - Check button: Show user's selected answer is correct or not
 - User get coins in case having a correct answer
-- Set play again / quit option
+- Set play again option
 
 ## Categories:
 
@@ -28,7 +28,7 @@
   - Check if answer is correct or not
   - Next question
   - See the Coins on display
-  - Play again or quit ?
+  - Play again?
 
 ## Issues :
 

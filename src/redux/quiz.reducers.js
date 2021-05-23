@@ -57,7 +57,7 @@ export const triviaReducer = (state = triviaInitState, action) => {
       return {
         ...state,
         questions: [],
-
+        point: 0,
         categoryId: null,
       }
     default:

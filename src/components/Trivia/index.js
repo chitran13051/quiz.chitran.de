@@ -79,7 +79,7 @@ function Trivia() {
         <h1>COMPLETE!</h1>
         <h3 style={{ color: "orange" }}>Score: {point}</h3>
         <>
-          <Button
+          {/* <Button
             style={{
               background: "aqua",
 
@@ -88,7 +88,7 @@ function Trivia() {
             onClick={() => handleFetchData(categoryId)}
           >
             Play Again <BsArrowClockwise />
-          </Button>
+          </Button> */}
           <Button
             style={{ cursor: "pointer" }}
             background
@@ -99,7 +99,7 @@ function Trivia() {
             }
           >
             <Link style={{ textDecoration: "none" }} to="/">
-              Back to Home <TiDeleteOutline />
+              Play Again <BsArrowClockwise />
             </Link>
           </Button>
         </>
