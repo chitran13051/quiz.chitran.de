@@ -13,7 +13,7 @@ function App() {
         <title>Quiz App </title>
         <meta
           name="description"
-          content="Get into for all your favorite movies and series"
+          content="Get into for all your favorite quiz"
         />
       </Helmet>
       <Switch>
