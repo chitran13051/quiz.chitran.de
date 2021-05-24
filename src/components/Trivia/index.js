@@ -26,6 +26,7 @@ const loseAudio = new Audio(Lose)
 
 function Trivia() {
   const [coin, setCoin] = useState(0)
+  const [score, setScore] = useState(0)
   const dispatch = useDispatch()
   const {
     questions,
@@ -65,6 +66,15 @@ function Trivia() {
     animateNumber(point, 10, coin)
   }, [point])
   useEffect(() => {
+    let highestscore = JSON.parse(localStorage.getItem("highestscore")) || []
+    if (point > Number(highestscore)) {
+      localStorage.setItem("highestscore", JSON.stringify(point))
+      setScore(point)
+    } else {
+      setScore(highestscore)
+    }
+  }, [point])
+  useEffect(() => {
     if (isSubmitted) {
       correctAnswer ? playSound(coinsdropAudio) : playSound(loseAudio)
     }
@@ -77,7 +87,14 @@ function Trivia() {
     return (
       <Result>
         <h1>COMPLETE!</h1>
-        <h3 style={{ color: "orange" }}>Score: {point}</h3>
+        <h3 style={{ color: "orange", margin: " 30px" }}>
+          {" "}
+          Your Score: {point}
+        </h3>
+        <h3 style={{ color: "red", margin: " 30px" }}>
+          Highest Score: {score}
+        </h3>
+
         <>
           {/* <Button
             style={{

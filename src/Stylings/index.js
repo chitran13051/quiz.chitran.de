@@ -66,12 +66,13 @@ export const Logo = styled.div`
 `
 const FallAnimation = keyframes`
   0%  {
+    opacity: 0;
    transform : translateY(-200px)
   }
 
   80% {
-      /* opacity : 1; */
-    transform : translateY(100px);
+      opacity : 1;
+    transform : translateY(20px);
     box-shadow: inset 0px -7px 0px 3px #bce9f6,
     inset -1px 14px 11px 0px rgb(255 255 255 / 38%),
     inset 0px -20px 6px 3px rgb(0 0 0 / 40%), 0 0 1px #000;
@@ -169,24 +170,14 @@ export const ToggleButton = styled.input.attrs({ type: "checkbox" })`
 `
 
 //////////////////////
+// Status Bars
+//////////////////////
+export const StatusBar = styled.div`
+  width: 10px;
+`
+//////////////////////
 ///Category Styling///
-// export const CategoryStyle = styled.div`
-//   font-family: "Luckiest Guy", cursive;
 
-//   margin: 3% auto 0 auto;
-//   > * {
-//     margin-top: 5px;
-//     cursor: pointer;
-
-//     color: violet;
-//     border-radius: 36px;
-//     background: white;
-//     padding: 1rem;
-//     &:hover {
-//       color: orange;
-//     }
-//   }
-// `
 export const CategoryStyle = styled(ReactSelect)`
   max-width: 300px;
   margin: 30px auto 0;

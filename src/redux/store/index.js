@@ -14,7 +14,7 @@ const enhancer = composeEnhancers(
   // other store enhancers if any
 )
 
-export const store = createStore(triviaReducer, enhancer)
+export const store = createStore(triviaReducer, applyMiddleware(thunk))
 
 // action creators
 
