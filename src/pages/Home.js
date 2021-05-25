@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { resetGame } from "../redux/quiz.actions"
-import Layout from "../components/Trivia/Layout"
+import Layout from "../components/Layout"
 import Category from "../components/Category"
 import { GiSoundOn, GiSoundOff } from "react-icons/gi"
 import { Link } from "react-router-dom"

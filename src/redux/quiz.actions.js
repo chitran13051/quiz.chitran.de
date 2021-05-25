@@ -38,12 +38,13 @@ export const nextQuestion = () => ({
   type: quizTypes.NEXT_QUESTION,
 })
 export const checkAnswer = () => ({
-  type: quizTypes.NEXT_QUESTION,
+  type: quizTypes.CHECK_ANSWER,
 })
 
-export const snapAnswer = payload => ({
+export const snapAnswer = (payload, isSubmitted) => ({
   type: quizTypes.SNAP_QUESTION,
   payload,
+  isSubmitted,
 })
 export const resetGame = () => ({
   type: quizTypes.RESET_GAME,

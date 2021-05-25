@@ -42,6 +42,7 @@ function Trivia() {
     point,
     isSubmitted,
     userAnswer,
+    index,
 
     categoryId,
   } = useSelector(state => state)
@@ -128,9 +129,9 @@ function Trivia() {
 
         return (
           <Answer
-            disabled={isSubmitted}
+            disabled={questions[questionIndex].isSubmit}
             isCorrect={correctAnswer ? "correct" : "wrong"}
-            isSubmit={isSubmitted}
+            isSubmit={questions[questionIndex].isSubmit}
             userAnswer={questions[questionIndex].userAnswer === i}
             onClick={e => {
               dispatch(selectQuestion(i, correctAnswer))

@@ -12,20 +12,28 @@ export default function ProgressBar({ totalQuestion }) {
     point,
     isSubmitted,
     userAnswer,
+    index,
 
     categoryId,
   } = useSelector(state => state)
   console.log(questions)
   return (
     <div>
-      {questions.map((question, questionIndex) => (
+      {questions.map((question, currentIndex) => (
         <StatusBar
-          key={questionIndex}
+          key={currentIndex}
           isCorrect={question.isCorrect}
           isSubmit={question.isSubmit}
           onClick={() => {
-            dispatch(snapAnswer(questionIndex))
+            if (question.isSubmit || currentIndex === index) {
+              dispatch(snapAnswer(currentIndex, question.isSubmit))
+            }
           }}
+          style={
+            question.isSubmit || currentIndex === index
+              ? { cursor: "pointer" }
+              : { cursor: "unset" }
+          }
         />
       ))}
     </div>
