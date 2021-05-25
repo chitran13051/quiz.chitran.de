@@ -1,6 +1,6 @@
 # React Trivia Game in React
 
-## [Live-Demo] (https://trivia-game-chitran.netlify.app/)
+## [Live-Demo] (https://quiz.chitran.de/)
 
 ## A Quiz App built with Reactjs
 
@@ -8,6 +8,7 @@
 - User can choose questions from a list of categories
 - Check button: Show user's selected answer is correct or not
 - User get coins in case having a correct answer
+- Keep track of previous user's answers
 - Set play again option
 
 ## Categories:
