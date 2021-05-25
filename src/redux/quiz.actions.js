@@ -28,15 +28,27 @@ export const selectCategory = payload => ({
   payload,
 })
 
-export const selectQuestion = payload => ({
+export const selectQuestion = (payload, correctAnswer) => ({
   type: quizTypes.SELECT_QUESTION,
   payload,
+  correctAnswer,
 })
 
-export const nextQuestion = payload => ({
+export const nextQuestion = () => ({
   type: quizTypes.NEXT_QUESTION,
+})
+export const checkAnswer = () => ({
+  type: quizTypes.NEXT_QUESTION,
+})
+
+export const snapAnswer = payload => ({
+  type: quizTypes.SNAP_QUESTION,
   payload,
 })
+export const resetGame = () => ({
+  type: quizTypes.RESET_GAME,
+})
+
 export const playSound = audioFile => {
   audioFile.play()
 }

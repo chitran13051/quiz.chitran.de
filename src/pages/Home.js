@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { quizTypes } from "../redux/quiz.types"
+import { resetGame } from "../redux/quiz.actions"
 import Layout from "../components/Trivia/Layout"
 import Category from "../components/Category"
 import { GiSoundOn, GiSoundOff } from "react-icons/gi"
@@ -22,9 +22,7 @@ export default function Home() {
     On ? playSound(startAudio) : startAudio.pause()
   }, [On])
   useEffect(() => {
-    dispatch({
-      type: quizTypes.RESET_GAME,
-    })
+    dispatch(resetGame())
   }, [])
   const Toggle = () => {
     setOn(!On)

@@ -1,5 +1,6 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
+import { snapAnswer } from "../redux/quiz.actions"
 import { StatusBar } from "../Stylings"
 export default function ProgressBar({ totalQuestion }) {
   const dispatch = useDispatch()
@@ -23,10 +24,7 @@ export default function ProgressBar({ totalQuestion }) {
           isCorrect={question.isCorrect}
           isSubmit={question.isSubmit}
           onClick={() => {
-            dispatch({
-              type: "SNAP_QUESTION",
-              payload: questionIndex,
-            })
+            dispatch(snapAnswer(questionIndex))
           }}
         />
       ))}

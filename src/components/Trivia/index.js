@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { fetchData, playSound } from "../../redux/quiz.actions"
+import {
+  fetchData,
+  playSound,
+  selectQuestion,
+  nextQuestion,
+  checkAnswer,
+} from "../../redux/quiz.actions"
 import ProgressBar from "../ProgressBar"
 import {
   Question,
@@ -127,11 +133,7 @@ function Trivia() {
             isSubmit={isSubmitted}
             userAnswer={questions[questionIndex].userAnswer === i}
             onClick={e => {
-              dispatch({
-                type: quizTypes.SELECT_QUESTION,
-                payload: i,
-                correctAnswer,
-              })
+              dispatch(selectQuestion(i, correctAnswer))
             }}
             key={i}
           >
@@ -145,13 +147,7 @@ function Trivia() {
           background={isSelected}
           animation={isSelected}
           onClick={() => {
-            !isSubmitted
-              ? dispatch({
-                  type: quizTypes.CHECK_QUESTION,
-                })
-              : dispatch({
-                  type: quizTypes.NEXT_QUESTION,
-                })
+            !isSubmitted ? dispatch(checkAnswer()) : dispatch(nextQuestion())
           }}
         >
           {isSubmitted ? "Next" : "Check"}
