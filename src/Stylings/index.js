@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
          padding: 0;
       box-sizing: border-box;
       
-      letter-spacing: 2px
+      letter-spacing: 1px
       min-height: 100vh
       
   }
@@ -172,8 +172,26 @@ export const ToggleButton = styled.input.attrs({ type: "checkbox" })`
 //////////////////////
 // Status Bars
 //////////////////////
-export const StatusBar = styled.div`
-  width: 10px;
+export const StatusBar = styled.div.attrs(props => {
+  if (props.isSubmit && props.isCorrect === "correct") {
+    return {
+      background: "#5efa73",
+    }
+  } else if (props.isSubmit && props.isCorrect === "wrong") {
+    return {
+      background: "red",
+    }
+  } else {
+    return {
+      background: "#ddd",
+    }
+  }
+})`
+  width: 10%;
+  height: 20px;
+  background-color: ${props => props.background};
+  display: inline-flex;
+  border: 1px solid black;
 `
 //////////////////////
 ///Category Styling///
@@ -340,6 +358,7 @@ export const PointWrap = styled.div`
   justify-content: space-between;
 
   font-weight: 900;
+  font-size: 1.5rem;
   font-family: "Luckiest Guy", cursive;
   color: white;
 `

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchData, playSound } from "../../redux/quiz.actions"
-import { selectQuestion, nextQuestion } from "../../redux/quiz.actions"
+import ProgressBar from "../ProgressBar"
 import {
   Question,
   Button,
@@ -96,29 +96,9 @@ function Trivia() {
         </h3>
 
         <>
-          {/* <Button
-            style={{
-              background: "aqua",
-
-              cursor: "pointer",
-            }}
-            onClick={() => handleFetchData(categoryId)}
-          >
+          <Link style={{ textDecoration: "none" }} to="/">
             Play Again <BsArrowClockwise />
-          </Button> */}
-          <Button
-            style={{ cursor: "pointer" }}
-            background
-            onClick={() =>
-              dispatch({
-                type: quizTypes.RESET_GAME,
-              })
-            }
-          >
-            <Link style={{ textDecoration: "none" }} to="/">
-              Play Again <BsArrowClockwise />
-            </Link>
-          </Button>
+          </Link>
         </>
       </Result>
     )
@@ -133,6 +113,7 @@ function Trivia() {
           {coin}
         </span>
       </PointWrap>
+      <ProgressBar totalQuestion={questions.length}></ProgressBar>
       <Question>
         <span> {atob(questions[questionIndex].question)} </span>{" "}
       </Question>
@@ -144,7 +125,7 @@ function Trivia() {
             disabled={isSubmitted}
             isCorrect={correctAnswer ? "correct" : "wrong"}
             isSubmit={isSubmitted}
-            userAnswer={userAnswer === i}
+            userAnswer={questions[questionIndex].userAnswer === i}
             onClick={e => {
               dispatch({
                 type: quizTypes.SELECT_QUESTION,

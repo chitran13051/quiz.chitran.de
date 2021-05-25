@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { quizTypes } from "../redux/quiz.types"
 import Layout from "../components/Trivia/Layout"
 import Category from "../components/Category"
 import { GiSoundOn, GiSoundOff } from "react-icons/gi"
@@ -14,10 +16,16 @@ const clickAudio = new Audio(click)
 const startAudio = new Audio(start)
 
 export default function Home() {
+  const dispatch = useDispatch()
   const [On, setOn] = useState(false)
   useEffect(() => {
     On ? playSound(startAudio) : startAudio.pause()
   }, [On])
+  useEffect(() => {
+    dispatch({
+      type: quizTypes.RESET_GAME,
+    })
+  }, [])
   const Toggle = () => {
     setOn(!On)
   }

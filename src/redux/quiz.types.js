@@ -10,4 +10,6 @@ export const quizTypes = {
 
   CHECK_QUESTION: "CHECK_QUESTION",
   RESET_GAME: "RESET_GAME",
+
+  SNAP_QUESTION: "SNAP_QUESTION",
 }

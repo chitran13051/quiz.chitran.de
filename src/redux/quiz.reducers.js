@@ -39,10 +39,20 @@ export const triviaReducer = (state = triviaInitState, action) => {
         isSelected: true,
       }
     case quizTypes.CHECK_QUESTION:
+      const newQuestions = state.questions.map((question, index) =>
+        state.questionIndex === index
+          ? {
+              ...question,
+              isCorrect: state.correctAnswer ? "correct" : "wrong",
+              userAnswer: state.userAnswer,
+              isSubmit: true,
+            }
+          : question
+      )
       return {
         ...state,
         isSubmitted: true,
-
+        questions: newQuestions,
         point: state.correctAnswer ? state.point + 1000 : state.point,
       }
     case quizTypes.NEXT_QUESTION:
@@ -52,6 +62,11 @@ export const triviaReducer = (state = triviaInitState, action) => {
         correctAnswer: null,
         isSelected: false,
         isSubmitted: false,
+      }
+    case quizTypes.SNAP_QUESTION:
+      return {
+        ...state,
+        questionIndex: action.payload,
       }
     case quizTypes.RESET_GAME:
       return {
