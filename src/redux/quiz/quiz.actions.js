@@ -1,6 +1,6 @@
 import { quizTypes } from "./quiz.types"
 
-import { store } from "./store"
+import { store } from "./quiz.store"
 import { sortArray, getSessionId } from "./quiz.helpers"
 
 export const fetchData = async urlAPI => {

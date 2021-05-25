@@ -6,25 +6,18 @@ import {
   selectQuestion,
   nextQuestion,
   checkAnswer,
-} from "../../redux/quiz.actions"
+} from "../../redux/quiz/quiz.actions"
 import ProgressBar from "../ProgressBar"
-import {
-  Question,
-  Button,
-  Card,
-  Answer,
-  PointWrap,
-  Result,
-} from "../../Stylings"
+import { Question, Button, Card, Answer, PointWrap, Result } from "../Stylings"
 import { IoBulbOutline } from "react-icons/io5"
 import { GiTwoCoins } from "react-icons/gi"
 import { TiDeleteOutline } from "react-icons/ti"
 import { BsArrowClockwise } from "react-icons/bs"
-import { quizTypes } from "../../redux/quiz.types"
+import { quizTypes } from "../../redux/quiz/quiz.types"
 import { Link } from "react-router-dom"
-import Coinsdrop from "../../Stylings/coinsdrop.mp3"
-import Lose from "../../Stylings/lose.mp3"
-import Click from "../../Stylings/click.mp3"
+import Coinsdrop from "../Stylings/coinsdrop.mp3"
+import Lose from "../Stylings/lose.mp3"
+import Click from "../Stylings/click.mp3"
 
 const clickAudio = new Audio(Click)
 const coinsdropAudio = new Audio(Coinsdrop)

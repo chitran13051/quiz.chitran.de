@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from "redux"
-import { triviaReducer } from "../quiz.reducers"
+import { triviaReducer } from "./quiz.reducers"
 import thunk from "redux-thunk"
 
 const composeEnhancers =

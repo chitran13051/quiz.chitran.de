@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { snapAnswer } from "../redux/quiz.actions"
+import { snapAnswer } from "../../redux/quiz/quiz.actions"
 import { StatusBar } from "../Stylings"
 export default function ProgressBar({ totalQuestion }) {
   const dispatch = useDispatch()

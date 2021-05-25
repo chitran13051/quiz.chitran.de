@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 
 import { CategoryStyle } from "../Stylings"
-import { selectCategory } from "../redux/quiz.actions"
+import { selectCategory } from "../../redux/quiz/quiz.actions"
 
 const options = [
   { value: 17, label: "Science" },

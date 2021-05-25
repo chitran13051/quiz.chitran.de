@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { GlobalStyle, Logo } from "../../Stylings"
+import { GlobalStyle, Logo } from "../Stylings"
 export default function Layout({ children }) {
   return (
     <div className="wrapper">
