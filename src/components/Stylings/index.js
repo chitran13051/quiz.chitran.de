@@ -1,6 +1,6 @@
-import styled, { createGlobalStyle, keyframes, css } from "styled-components"
-import ReactSelect from "react-select"
-import BgImg from "./bg.jpg"
+import styled, { createGlobalStyle, keyframes, css } from "styled-components";
+import ReactSelect from "react-select";
+import BgImg from "./bg.jpg";
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-`
+`;
 //////////////////////
 //Home Page Styling
 ///////////////////////
@@ -47,7 +47,7 @@ const PressAnimation = keyframes`
     
 
   }
-`
+`;
 export const Logo = styled.div`
   color: #ffffff;
   font-size: 6rem;
@@ -63,7 +63,7 @@ export const Logo = styled.div`
   animation-name: ${PressAnimation};
   animation-duration: 3s;
   animation-iteration-count: ease-in;
-`
+`;
 const FallAnimation = keyframes`
   0%  {
     opacity: 0;
@@ -78,7 +78,7 @@ const FallAnimation = keyframes`
     inset 0px -20px 6px 3px rgb(0 0 0 / 40%), 0 0 1px #000;
 
   }
-`
+`;
 
 export const StartButton = styled.button`
   margin-top: 150px;
@@ -108,7 +108,7 @@ export const StartButton = styled.button`
   &:active {
     transform: translateY(10px);
   }
-`
+`;
 const PulsingTextAnimation = keyframes`
 0%{
 
@@ -121,7 +121,7 @@ color : blue
 }
 
 
-`
+`;
 
 export const Text = styled.h1`
   margin: 20px;
@@ -129,7 +129,7 @@ export const Text = styled.h1`
   animation-name: ${PulsingTextAnimation};
   animation-duration: 0.9s;
   animation-iteration-count: infinite;
-`
+`;
 
 export const ToggleButton = styled.input.attrs({ type: "checkbox" })`
   & {
@@ -167,32 +167,32 @@ export const ToggleButton = styled.input.attrs({ type: "checkbox" })`
     left: 39px;
     background-color: white;
   }
-`
+`;
 
 //////////////////////
 // Status Bars
 //////////////////////
-export const StatusBar = styled.div.attrs(props => {
+export const StatusBar = styled.div.attrs((props) => {
   if (props.isSubmit && props.isCorrect === "correct") {
     return {
-      background: "#5efa73",
-    }
+      background: "#5efa73"
+    };
   } else if (props.isSubmit && props.isCorrect === "wrong") {
     return {
-      background: "red",
-    }
+      background: "red"
+    };
   } else {
     return {
-      background: "#ddd",
-    }
+      background: "#ddd"
+    };
   }
 })`
   width: 10%;
   height: 20px;
-  background-color: ${props => props.background};
+  background-color: ${(props) => props.background};
   display: inline-flex;
   border: 1px solid black;
-`
+`;
 //////////////////////
 ///Category Styling///
 
@@ -208,7 +208,7 @@ export const CategoryStyle = styled(ReactSelect)`
   & .Select-placeholder {
     font-size: smaller;
   }
-`
+`;
 
 //////////////////////
 //Play Page Styling
@@ -222,7 +222,7 @@ export const Card = styled.div`
   @media (max-width: 768px) {
     width: 80%;
   }
-`
+`;
 
 export const Question = styled.div`
   margin: 2rem 0;
@@ -232,26 +232,26 @@ export const Question = styled.div`
   font-weight: 600;
   border-radius: 10px;
   box-shadow: 9px -4px 20px 0px navy;
-`
-export const Answer = styled.button.attrs(props => {
+`;
+export const Answer = styled.button.attrs((props) => {
   if (props.isSubmit && props.isCorrect === "correct") {
     return {
       answerBackground: ` linear-gradient(
       -180deg
-      ,#fcfcfc 0%,#08ff08 100%)`,
-    }
+      ,#fcfcfc 0%,#08ff08 100%)`
+    };
   } else if (
     props.isSubmit &&
     props.isCorrect === "wrong" &&
     props.userAnswer
   ) {
     return {
-      answerBackground: ` linear-gradient(-180deg, #ff89d6 0%, red 100%)`,
-    }
+      answerBackground: ` linear-gradient(-180deg, #ff89d6 0%, red 100%)`
+    };
   } else {
     return {
-      answerBackground: null,
-    }
+      answerBackground: null
+    };
   }
 })`
   cursor: pointer;
@@ -267,7 +267,7 @@ export const Answer = styled.button.attrs(props => {
   font-weight: 600;
 
   border: 1px solid #012880;
-  background-image: ${props => props.answerBackground};
+  background-image: ${(props) => props.answerBackground};
   /* linear-gradient(-180deg, #ff89d6 0%, hotpink 100%); */
   box-shadow: 0 1rem 1.25rem 0 rgb(22 75 195 / 50%),
     0 -0.25rem 1.5rem rgb(23 217 199) inset,
@@ -317,7 +317,7 @@ export const Answer = styled.button.attrs(props => {
     background-image: linear-gradient(-180deg, #ff89d6 0%, blue 100%);
     color: white;
   }
-`
+`;
 export const Button = styled.button`
   padding: 1rem;
   margin: 35px 0;
@@ -331,16 +331,16 @@ export const Button = styled.button`
 
   /* box-shadow: 3px 3px 3px 5px #ddd; */
 
-  background: ${props => (props.background ? "orange" : "#ccc")};
+  background: ${(props) => (props.background ? "orange" : "#ccc")};
 
-  animation: ${props =>
+  animation: ${(props) =>
     props.animation
       ? css`
           ${ScaleButton} 1s ease-out;
           cursor: pointer;
         `
       : ""};
-`
+`;
 const ScaleButton = keyframes`
   0%{
     transform : scale(1);
@@ -350,7 +350,7 @@ const ScaleButton = keyframes`
     transform : scale(1.1);
   
   }
-`
+`;
 
 export const PointWrap = styled.div`
   display: flex;
@@ -361,7 +361,7 @@ export const PointWrap = styled.div`
   font-size: 1.5rem;
   font-family: "Luckiest Guy", cursive;
   color: white;
-`
+`;
 
 export const Result = styled.div`
   width: 50%;
@@ -374,4 +374,4 @@ export const Result = styled.div`
 
   text-shadow: 5px 5px #fff;
   animation: ${ScaleButton} 5s infinite;
-`
+`;
